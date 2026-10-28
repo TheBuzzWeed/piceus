@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="pm-title pm-desc">
+<title id="pm-title">PieMaker — Life Pies</title>
+<desc id="pm-desc">Transparent PieMaker animation showing life-priority percentages shifting across five dramatic pie states as survey answers and recommendations change over time.</desc>
+<defs>
+<style>
+:root{--pm-ink:#f7f8fb;--pm-orbit:rgba(247,248,251,.42);--pm-orbit-soft:rgba(247,248,251,.18);--pm-outline:rgba(255,255,255,.85)}
+.category{font:700 18px Arial,Helvetica,sans-serif;letter-spacing:2.6px;text-anchor:middle}
+.signature{font:700 19px Arial,Helvetica,sans-serif;letter-spacing:5px;text-anchor:middle;fill:var(--pm-ink)}
+.subline{font:500 11px Arial,Helvetica,sans-serif;letter-spacing:2.8px;text-anchor:middle;fill:var(--pm-ink);opacity:.7}
+.slice{stroke-width:276;stroke-linecap:butt}
+.pie-outline{fill:none;stroke:var(--pm-outline);stroke-width:12}
+.pie-outline-soft{fill:none;stroke:rgba(255,255,255,.28);stroke-width:4}
+.ring{fill:none;stroke:var(--pm-orbit);stroke-width:2.6}
+.ring-soft{fill:none;stroke:var(--pm-orbit-soft);stroke-width:1.6;stroke-dasharray:10 12}
+.orbit-line{stroke-width:2.8;stroke-linecap:round}
+.tracker-dot{r:6.6}
+.tracker-halo{r:13;fill:none;stroke-width:2}
+.still{display:none}
+@media(prefers-reduced-motion:reduce){.motion{display:none}.still{display:inline}}
+</style>
+</defs>
+<g class="motion">
+  <circle class="ring" cx="500" cy="500" r="382"/>
+  <circle class="ring-soft" cx="500" cy="500" r="346"/>
+  <circle class="pie-outline-soft" cx="500" cy="500" r="151"/>
+  <circle class="pie-outline" cx="500" cy="500" r="142"/>
+  <g transform="rotate(-90 500 500)" fill="none">
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#7DFFB2" stroke-opacity=".96" stroke-dasharray="144.765 659.483" stroke-dashoffset="0.000">
+      <title>HEALTH</title>
+      <animate attributeName="stroke-dasharray" values="144.765 659.483;241.274 562.973;80.425 723.823;193.019 611.228;96.510 707.738;144.765 659.483" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="0.000;0.000;0.000;0.000;0.000;0.000" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#FF9E7A" stroke-opacity=".96" stroke-dasharray="176.934 627.313" stroke-dashoffset="-144.765">
+      <title>WORK</title>
+      <animate attributeName="stroke-dasharray" values="176.934 627.313;64.340 739.908;225.189 579.058;96.510 707.738;128.680 675.568;176.934 627.313" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="-144.765;-241.274;-80.425;-193.019;-96.510;-144.765" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#FF6FAE" stroke-opacity=".96" stroke-dasharray="112.595 691.653" stroke-dashoffset="-321.699">
+      <title>RELATIONSHIPS</title>
+      <animate attributeName="stroke-dasharray" values="112.595 691.653;128.680 675.568;64.340 739.908;80.425 723.823;176.934 627.313;112.595 691.653" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="-321.699;-305.614;-305.614;-289.529;-225.189;-321.699" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#FFD84D" stroke-opacity=".96" stroke-dasharray="80.425 723.823" stroke-dashoffset="-434.294">
+      <title>EDUCATION</title>
+      <animate attributeName="stroke-dasharray" values="80.425 723.823;48.255 755.993;112.595 691.653;144.765 659.483;64.340 739.908;80.425 723.823" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="-434.294;-434.294;-369.954;-369.954;-402.124;-434.294" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#C183FF" stroke-opacity=".96" stroke-dasharray="96.510 707.738" stroke-dashoffset="-514.719">
+      <title>CREATIVITY</title>
+      <animate attributeName="stroke-dasharray" values="96.510 707.738;144.765 659.483;160.850 643.398;64.340 739.908;80.425 723.823;96.510 707.738" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="-514.719;-482.549;-482.549;-514.719;-466.464;-514.719" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#35F2E2" stroke-opacity=".96" stroke-dasharray="64.340 739.908" stroke-dashoffset="-611.228">
+      <title>COMMUNITY</title>
+      <animate attributeName="stroke-dasharray" values="64.340 739.908;40.212 764.035;48.255 755.993;96.510 707.738;112.595 691.653;64.340 739.908" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="-611.228;-627.313;-643.398;-579.058;-546.888;-611.228" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#4FA8FF" stroke-opacity=".96" stroke-dasharray="56.297 747.950" stroke-dashoffset="-675.568">
+      <title>MOVEMENT</title>
+      <animate attributeName="stroke-dasharray" values="56.297 747.950;56.297 747.950;48.255 755.993;72.382 731.865;48.255 755.993;56.297 747.950" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="-675.568;-667.526;-691.653;-675.568;-659.483;-675.568" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#86A8FF" stroke-opacity=".96" stroke-dasharray="72.382 731.865" stroke-dashoffset="-731.865">
+      <title>REST</title>
+      <animate attributeName="stroke-dasharray" values="72.382 731.865;80.425 723.823;64.340 739.908;56.297 747.950;96.510 707.738;72.382 731.865" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="-731.865;-723.823;-739.908;-747.950;-707.738;-731.865" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g class="tracker" transform="rotate(-57.6 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="-57.6 500 500;-36.0 500 500;-72.0 500 500;-46.8 500 500;-68.4 500 500;-57.6 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#7DFFB2" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#7DFFB2"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#7DFFB2" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(57.6)">
+        <animateTransform attributeName="transform" type="rotate" values="57.6;36.0;72.0;46.8;68.4;57.6" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#7DFFB2">HEALTH</text>
+      </g>
+    </g>
+  </g>
+  <g class="tracker" transform="rotate(14.4 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="14.4 500 500;32.4 500 500;-3.6 500 500;18.0 500 500;-18.0 500 500;14.4 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#FF9E7A" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#FF9E7A"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#FF9E7A" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(-14.4)">
+        <animateTransform attributeName="transform" type="rotate" values="-14.4;-32.4;3.6;-18.0;18.0;-14.4" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#FF9E7A">WORK</text>
+      </g>
+    </g>
+  </g>
+  <g class="tracker" transform="rotate(79.2 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="79.2 500 500;75.6 500 500;61.2 500 500;57.6 500 500;50.4 500 500;79.2 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#FF6FAE" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#FF6FAE"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#FF6FAE" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(-79.2)">
+        <animateTransform attributeName="transform" type="rotate" values="-79.2;-75.6;-61.2;-57.6;-50.4;-79.2" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#FF6FAE">RELATIONSHIPS</text>
+      </g>
+    </g>
+  </g>
+  <g class="tracker" transform="rotate(122.4 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="122.4 500 500;115.2 500 500;100.8 500 500;108.0 500 500;104.4 500 500;122.4 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#FFD84D" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#FFD84D"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#FFD84D" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(-122.4)">
+        <animateTransform attributeName="transform" type="rotate" values="-122.4;-115.2;-100.8;-108.0;-104.4;-122.4" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#FFD84D">EDUCATION</text>
+      </g>
+    </g>
+  </g>
+  <g class="tracker" transform="rotate(162.0 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="162.0 500 500;158.4 500 500;162.0 500 500;154.8 500 500;136.8 500 500;162.0 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#C183FF" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#C183FF"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#C183FF" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(-162.0)">
+        <animateTransform attributeName="transform" type="rotate" values="-162.0;-158.4;-162.0;-154.8;-136.8;-162.0" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#C183FF">CREATIVITY</text>
+      </g>
+    </g>
+  </g>
+  <g class="tracker" transform="rotate(198.0 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="198.0 500 500;199.8 500 500;208.8 500 500;190.8 500 500;180.0 500 500;198.0 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#35F2E2" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#35F2E2"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#35F2E2" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(-198.0)">
+        <animateTransform attributeName="transform" type="rotate" values="-198.0;-199.8;-208.8;-190.8;-180.0;-198.0" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#35F2E2">COMMUNITY</text>
+      </g>
+    </g>
+  </g>
+  <g class="tracker" transform="rotate(225.0 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="225.0 500 500;221.4 500 500;230.4 500 500;228.6 500 500;216.0 500 500;225.0 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#4FA8FF" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#4FA8FF"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#4FA8FF" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(-225.0)">
+        <animateTransform attributeName="transform" type="rotate" values="-225.0;-221.4;-230.4;-228.6;-216.0;-225.0" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#4FA8FF">MOVEMENT</text>
+      </g>
+    </g>
+  </g>
+  <g class="tracker" transform="rotate(253.8 500 500)">
+    <animateTransform attributeName="transform" type="rotate" values="253.8 500 500;252.0 500 500;255.6 500 500;257.4 500 500;248.4 500 500;253.8 500 500" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#86A8FF" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#86A8FF"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#86A8FF" stroke-opacity=".65"/>
+    <g transform="translate(938 500)">
+      <g transform="rotate(-253.8)">
+        <animateTransform attributeName="transform" type="rotate" values="-253.8;-252.0;-255.6;-257.4;-248.4;-253.8" keyTimes="0;.18;.36;.54;.72;.9;1" keySplines=".42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1;.42 0 .22 1" calcMode="spline" dur="24s" repeatCount="indefinite"/>
+        <text class="category" x="0" y="6" fill="#86A8FF">REST</text>
+      </g>
+    </g>
+  </g>
+  <g transform="rotate(-28 500 500)">
+    <animateTransform attributeName="transform" type="rotate" from="-28 500 500" to="332 500 500" dur="30s" repeatCount="indefinite"/>
+    <circle cx="940" cy="500" r="5.4" fill="var(--pm-ink)" opacity=".88"/>
+  </g>
+  <g transform="rotate(36 500 500)">
+    <animateTransform attributeName="transform" type="rotate" from="36 500 500" to="-324 500 500" dur="41s" repeatCount="indefinite"/>
+    <circle cx="848" cy="500" r="4.6" fill="var(--pm-ink)" opacity=".62"/>
+  </g>
+  <text class="signature" x="500" y="500">PIEMAKER</text>
+  <text class="subline" x="500" y="526">PRIORITIES / SURVEYS / RECOMMENDATIONS / TRACKING</text>
+</g>
+<g class="still">
+  <circle class="ring" cx="500" cy="500" r="382"/>
+  <circle class="ring-soft" cx="500" cy="500" r="346"/>
+  <circle class="pie-outline-soft" cx="500" cy="500" r="151"/>
+  <circle class="pie-outline" cx="500" cy="500" r="142"/>
+  <g transform="rotate(-90 500 500)" fill="none">
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#7DFFB2" stroke-opacity=".96" stroke-dasharray="144.765 659.483" stroke-dashoffset="0.000"><title>HEALTH</title></circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#FF9E7A" stroke-opacity=".96" stroke-dasharray="176.934 627.313" stroke-dashoffset="-144.765"><title>WORK</title></circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#FF6FAE" stroke-opacity=".96" stroke-dasharray="112.595 691.653" stroke-dashoffset="-321.699"><title>RELATIONSHIPS</title></circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#FFD84D" stroke-opacity=".96" stroke-dasharray="80.425 723.823" stroke-dashoffset="-434.294"><title>EDUCATION</title></circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#C183FF" stroke-opacity=".96" stroke-dasharray="96.510 707.738" stroke-dashoffset="-514.719"><title>CREATIVITY</title></circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#35F2E2" stroke-opacity=".96" stroke-dasharray="64.340 739.908" stroke-dashoffset="-611.228"><title>COMMUNITY</title></circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#4FA8FF" stroke-opacity=".96" stroke-dasharray="56.297 747.950" stroke-dashoffset="-675.568"><title>MOVEMENT</title></circle>
+    <circle class="slice" cx="500" cy="500" r="128" stroke="#86A8FF" stroke-opacity=".96" stroke-dasharray="72.382 731.865" stroke-dashoffset="-731.865"><title>REST</title></circle>
+  </g>
+  <g class="tracker" transform="rotate(-57.6 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#7DFFB2" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#7DFFB2"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#7DFFB2" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(57.6)"><text class="category" x="0" y="6" fill="#7DFFB2">HEALTH</text></g></g>
+  </g>
+  <g class="tracker" transform="rotate(14.4 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#FF9E7A" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#FF9E7A"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#FF9E7A" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(-14.4)"><text class="category" x="0" y="6" fill="#FF9E7A">WORK</text></g></g>
+  </g>
+  <g class="tracker" transform="rotate(79.2 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#FF6FAE" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#FF6FAE"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#FF6FAE" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(-79.2)"><text class="category" x="0" y="6" fill="#FF6FAE">RELATIONSHIPS</text></g></g>
+  </g>
+  <g class="tracker" transform="rotate(122.4 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#FFD84D" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#FFD84D"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#FFD84D" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(-122.4)"><text class="category" x="0" y="6" fill="#FFD84D">EDUCATION</text></g></g>
+  </g>
+  <g class="tracker" transform="rotate(162.0 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#C183FF" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#C183FF"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#C183FF" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(-162.0)"><text class="category" x="0" y="6" fill="#C183FF">CREATIVITY</text></g></g>
+  </g>
+  <g class="tracker" transform="rotate(198.0 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#35F2E2" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#35F2E2"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#35F2E2" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(-198.0)"><text class="category" x="0" y="6" fill="#35F2E2">COMMUNITY</text></g></g>
+  </g>
+  <g class="tracker" transform="rotate(225.0 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#4FA8FF" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#4FA8FF"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#4FA8FF" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(-225.0)"><text class="category" x="0" y="6" fill="#4FA8FF">MOVEMENT</text></g></g>
+  </g>
+  <g class="tracker" transform="rotate(253.8 500 500)">
+    <line class="orbit-line" x1="760" y1="500" x2="820" y2="500" stroke="#86A8FF" stroke-opacity=".7"/>
+    <circle class="tracker-dot" cx="885" cy="500" fill="#86A8FF"/>
+    <circle class="tracker-halo" cx="885" cy="500" stroke="#86A8FF" stroke-opacity=".65"/>
+    <g transform="translate(938 500)"><g transform="rotate(-253.8)"><text class="category" x="0" y="6" fill="#86A8FF">REST</text></g></g>
+  </g>
+  <text class="signature" x="500" y="500">PIEMAKER</text>
+  <text class="subline" x="500" y="526">PRIORITIES / SURVEYS / RECOMMENDATIONS / TRACKING</text>
+</g>
+</svg>

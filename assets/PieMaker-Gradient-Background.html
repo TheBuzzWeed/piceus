@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>PieMaker — Gradient Background</title>
+  <style>
+    /* Preview only. Copy the component rules below into your website CSS. */
+    body { margin: 0; }
+
+    /*
+     * PICEUS gradient geometry, with a new PieMaker color palette.
+     * The angles, positions, stops, and mobile layout match the original hero.
+     * This component contains only a background: no symbol, text, or imagery.
+     */
+    .piceus-gradient-block {
+      --pie-base: #eff7f4;
+      --pie-wash: #e7f4efc9;
+      --pie-core: #087f8c;
+      --pie-teal: #23b6b4;
+      --pie-indigo: #605cc2;
+      --pie-halo: #ccd8ee;
+
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      min-height: 710px;
+      overflow: hidden;
+      background-color: var(--pie-base);
+    }
+
+    .piceus-gradient-block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          105deg,
+          var(--pie-base) 0%,
+          var(--pie-base) 38%,
+          var(--pie-wash) 49%,
+          transparent 67%
+        ),
+        radial-gradient(
+          ellipse at 86% 41%,
+          var(--pie-core) 0%,
+          var(--pie-teal) 17%,
+          var(--pie-indigo) 38%,
+          var(--pie-halo) 61%,
+          var(--pie-base) 78%
+        );
+    }
+
+    @media (max-width: 760px) {
+      .piceus-gradient-block {
+        min-height: 810px;
+      }
+
+      .piceus-gradient-block::before {
+        background:
+          linear-gradient(
+            180deg,
+            var(--pie-base) 0%,
+            var(--pie-base) 45%,
+            #eff7f480 61%,
+            transparent 76%
+          ),
+          radial-gradient(
+            ellipse at 80% 84%,
+            var(--pie-core) 0%,
+            var(--pie-indigo) 28%,
+            var(--pie-halo) 47%,
+            var(--pie-base) 80%
+          );
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Add your transparent PieMaker SVG inside this section when integrating. -->
+  <section class="piceus-gradient-block" aria-label="PieMaker gradient background"></section>
+</body>
+</html>
