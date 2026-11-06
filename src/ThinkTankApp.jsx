@@ -794,6 +794,40 @@ function formatTimestamp(value) {
 }
 
 
+const gatewayArticleImageUrls = Object.entries(import.meta.glob(
+  '../assets/articles/gateway-to-super-human-civilization/*.png',
+  { eager: true, query: '?url', import: 'default' },
+))
+  .sort(([left], [right]) => left.localeCompare(right, undefined, { numeric: true }))
+  .map(([, imageUrl]) => imageUrl);
+
+function replaceGatewayArticleImages(blocks) {
+  let imageIndex = 0;
+
+  return blocks.map((block) => {
+    if (block.type === 'image' && block.url) {
+      const imageUrl = gatewayArticleImageUrls[imageIndex];
+      imageIndex += 1;
+      return imageUrl ? { ...block, url: imageUrl } : block;
+    }
+
+    if (block.type !== 'html' || !block.content) {
+      return block;
+    }
+
+    const contentDocument = new DOMParser().parseFromString(block.content, 'text/html');
+    contentDocument.querySelectorAll('img').forEach((image) => {
+      const imageUrl = gatewayArticleImageUrls[imageIndex];
+      imageIndex += 1;
+      if (imageUrl) {
+        image.src = imageUrl;
+      }
+    });
+
+    return { ...block, content: contentDocument.body.innerHTML };
+  });
+}
+
 function renderBlock(block) {
   if (block.type === 'html' && block.content) {
     return <div className="tt-richtext" dangerouslySetInnerHTML={{ __html: block.content }} />;
@@ -913,6 +947,12 @@ export default function ThinkTankApp({
   const selectedPost = useMemo(
     () => posts.find((post) => post.id === selectedId) || null,
     [posts, selectedId],
+  );
+  const articleBlocks = useMemo(
+    () => selectedPost?.slug === 'gateway-to-super-human-civilization'
+      ? replaceGatewayArticleImages(selectedPost.blocks || [])
+      : selectedPost?.blocks || [],
+    [selectedPost],
   );
   const activePosts = useMemo(
     () => posts.filter((post) => !post.deletedAt),
@@ -2311,7 +2351,7 @@ export default function ThinkTankApp({
                 </div>
               ) : (
                 <div className="tt-article-body tt-story-body">
-                  {(selectedPost.blocks || []).map((block, index) => (
+                  {articleBlocks.map((block, index) => (
                     <div key={`${selectedPost.id}-block-${index}`} className="tt-story-block">{renderBlock(block)}</div>
                   ))}
                 </div>
