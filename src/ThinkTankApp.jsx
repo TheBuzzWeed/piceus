@@ -803,15 +803,47 @@ const gatewayArticleImagesById = Object.entries(import.meta.glob(
 
 const gatewayArticleImagesByIdMap = Object.fromEntries(gatewayArticleImagesById);
 
-function getGatewayArticleImageId(source) {
-  return String(source || '').match(/\/(\d{13})(?:[/?#]|$)/)?.[1] || null;
-}
+const gatewayArticleImageIdsInReadingOrder = [
+  '1791108450017',
+  '1791210753852',
+  '1791207421241',
+  '1791187870500',
+  '1791062933869',
+  '1791134756062',
+  '1791202729448',
+  '1791062453410',
+  '1791064767435',
+  '1791065124496',
+  '1791133201118',
+  '1791108221164',
+  '1791071132148',
+  '1791072429534',
+  '1791186947198',
+  '1791131754211',
+  '1791208702520',
+  '1791200750932',
+  '1791208944524',
+  '1791200243862',
+  '1791201616110',
+  '1791207658815',
+  '1791073816980',
+  '1791067732881',
+  '1791068074908',
+  '1791132233164',
+  '1791069813294',
+];
+
+const gatewayArticleImageUrls = gatewayArticleImageIdsInReadingOrder.map(
+  (imageId) => gatewayArticleImagesByIdMap[imageId],
+);
 
 function replaceGatewayArticleImages(blocks) {
+  let imageIndex = 0;
+
   return blocks.map((block) => {
     if (block.type === 'image' && block.url) {
-      const imageId = getGatewayArticleImageId(block.url);
-      const imageUrl = gatewayArticleImagesByIdMap[imageId];
+      const imageUrl = gatewayArticleImageUrls[imageIndex];
+      imageIndex += 1;
       return imageUrl ? { ...block, url: imageUrl } : block;
     }
 
@@ -821,8 +853,8 @@ function replaceGatewayArticleImages(blocks) {
 
     const contentDocument = new DOMParser().parseFromString(block.content, 'text/html');
     contentDocument.querySelectorAll('img').forEach((image) => {
-      const imageId = getGatewayArticleImageId(image.getAttribute('src'));
-      const imageUrl = gatewayArticleImagesByIdMap[imageId];
+      const imageUrl = gatewayArticleImageUrls[imageIndex];
+      imageIndex += 1;
       if (imageUrl) {
         image.src = imageUrl;
       }
