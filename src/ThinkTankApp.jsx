@@ -794,20 +794,24 @@ function formatTimestamp(value) {
 }
 
 
-const gatewayArticleImageUrls = Object.entries(import.meta.glob(
+const gatewayArticleImagesById = Object.entries(import.meta.glob(
   '../assets/articles/gateway-to-super-human-civilization/*.png',
   { eager: true, query: '?url', import: 'default' },
 ))
-  .sort(([left], [right]) => left.localeCompare(right, undefined, { numeric: true }))
-  .map(([, imageUrl]) => imageUrl);
+  .map(([filePath, imageUrl]) => [filePath.match(/(\d{13})\.png$/)?.[1], imageUrl])
+  .filter(([imageId]) => imageId);
+
+const gatewayArticleImagesByIdMap = Object.fromEntries(gatewayArticleImagesById);
+
+function getGatewayArticleImageId(source) {
+  return String(source || '').match(/\/(\d{13})(?:[/?#]|$)/)?.[1] || null;
+}
 
 function replaceGatewayArticleImages(blocks) {
-  let imageIndex = 0;
-
   return blocks.map((block) => {
     if (block.type === 'image' && block.url) {
-      const imageUrl = gatewayArticleImageUrls[imageIndex];
-      imageIndex += 1;
+      const imageId = getGatewayArticleImageId(block.url);
+      const imageUrl = gatewayArticleImagesByIdMap[imageId];
       return imageUrl ? { ...block, url: imageUrl } : block;
     }
 
@@ -817,8 +821,8 @@ function replaceGatewayArticleImages(blocks) {
 
     const contentDocument = new DOMParser().parseFromString(block.content, 'text/html');
     contentDocument.querySelectorAll('img').forEach((image) => {
-      const imageUrl = gatewayArticleImageUrls[imageIndex];
-      imageIndex += 1;
+      const imageId = getGatewayArticleImageId(image.getAttribute('src'));
+      const imageUrl = gatewayArticleImagesByIdMap[imageId];
       if (imageUrl) {
         image.src = imageUrl;
       }
