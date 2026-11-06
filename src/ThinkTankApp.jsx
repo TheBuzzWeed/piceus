@@ -683,12 +683,22 @@ function buildPostUrl(slug) {
   return url.toString();
 }
 
+function buildPostShareUrl(slug) {
+  if (typeof window === 'undefined') {
+    return `/api/blog/share/${encodeURIComponent(slug)}`;
+  }
+  return new URL(
+    `/api/blog/share/${encodeURIComponent(slug)}`,
+    window.location.origin,
+  ).toString();
+}
+
 
 async function sharePostFromCard(post) {
   if (!post?.slug) {
     return;
   }
-  const shareUrl = buildPostUrl(post.slug);
+  const shareUrl = buildPostShareUrl(post.slug);
   const sharePayload = {
     title: post.title || 'ThinkTank article',
     text: truncatePreview(post.excerpt || post.title || 'Open this ThinkTank article.', 160),
@@ -795,10 +805,10 @@ function formatTimestamp(value) {
 
 
 const gatewayArticleImagesById = Object.entries(import.meta.glob(
-  '../assets/articles/gateway-to-super-human-civilization/*.png',
+  '../assets/articles/gateway-to-super-human-civilization/*.webp',
   { eager: true, query: '?url', import: 'default' },
 ))
-  .map(([filePath, imageUrl]) => [filePath.match(/(\d{13})\.png$/)?.[1], imageUrl])
+  .map(([filePath, imageUrl]) => [filePath.match(/(\d{13})\.webp$/)?.[1], imageUrl])
   .filter(([imageId]) => imageId);
 
 const gatewayArticleImagesByIdMap = Object.fromEntries(gatewayArticleImagesById);
@@ -1818,7 +1828,7 @@ export default function ThinkTankApp({
       });
       setPosts((current) => current.map((post) => (post.id === result.item.id ? result.item : post)));
       if (action === 'share') {
-        const shareUrl = buildPostUrl(selectedPost.slug);
+        const shareUrl = buildPostShareUrl(selectedPost.slug);
         if (navigator.share) {
           await navigator.share({ title: selectedPost.title, url: shareUrl });
         } else {

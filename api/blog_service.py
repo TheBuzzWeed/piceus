@@ -1,10 +1,12 @@
+import json
 from base64 import b64decode
 from binascii import Error as BinasciiError
 from collections.abc import Callable
-from urllib.parse import unquote
+from html import escape
+from urllib.parse import quote, unquote
 
 from fastapi import APIRouter, Header, HTTPException, Query, Request
-from fastapi.responses import Response
+from fastapi.responses import HTMLResponse, Response
 
 from .blob_storage import download_private_blob, upload_private_blob
 from .blog_store import BlogStore
@@ -220,6 +222,110 @@ def create_blog_router(resolve_actor: ActorResolver) -> APIRouter:
             'item': post,
             'viewer': actor,
         }
+
+    @router.get('/share/{slug}/image')
+    def share_blog_post_image(slug: str) -> Response:
+        post = store.get_post(slug)
+        if (
+            not post
+            or post.get('deletedAt')
+            or post.get('status') != 'published'
+            or post.get('membersOnly')
+        ):
+            raise HTTPException(status_code=404, detail='Post not found.')
+
+        image_source = str(post.get('coverImage') or '')
+        header, separator, encoded_image = image_source.partition(',')
+        media_type = ''
+        if header.startswith('data:'):
+            media_type = header[5:].split(';', 1)[0].lower()
+        if (
+            not separator
+            or ';base64' not in header
+            or media_type not in {'image/jpeg', 'image/png', 'image/webp'}
+        ):
+            raise HTTPException(status_code=404, detail='Image not found.')
+
+        try:
+            image_bytes = b64decode(encoded_image, validate=True)
+        except (BinasciiError, ValueError) as exc:
+            raise HTTPException(
+                status_code=404, detail='Image not found.'
+            ) from exc
+
+        return Response(
+            content=image_bytes,
+            media_type=media_type,
+            headers={'Cache-Control': 'public, max-age=300, s-maxage=300'},
+        )
+
+    @router.get('/share/{slug}')
+    def share_blog_post(slug: str) -> HTMLResponse:
+        post = store.get_post(slug)
+        if (
+            not post
+            or post.get('deletedAt')
+            or post.get('status') != 'published'
+            or post.get('membersOnly')
+        ):
+            raise HTTPException(status_code=404, detail='Post not found.')
+
+        canonical_origin = 'https://piceus.com'
+        canonical_slug = quote(slug, safe='')
+        canonical_url = f'{canonical_origin}/api/blog/share/{canonical_slug}'
+        article_url = (
+            f'{canonical_origin}/think-tank?post={canonical_slug}'
+        )
+        title = str(post.get('title') or 'ThinkTank article').strip()
+        description = str(post.get('excerpt') or title).strip()
+        image_url = str(post.get('coverImage') or '').strip()
+        if image_url.startswith('data:image/'):
+            image_url = (
+                f'{canonical_origin}/api/blog/share/{canonical_slug}/image'
+            )
+        elif not image_url.startswith(('https://', 'http://')):
+            image_url = f'{canonical_origin}/assets/piceus-glyph.svg'
+
+        title_html = escape(title, quote=True)
+        description_html = escape(description, quote=True)
+        image_html = escape(image_url, quote=True)
+        article_url_html = escape(article_url, quote=True)
+        canonical_url_html = escape(canonical_url, quote=True)
+        redirect_script = json.dumps(article_url).replace('<', '\\u003c')
+        html = f'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title_html} | PICEUS</title>
+  <meta name="description" content="{description_html}">
+  <link rel="canonical" href="{canonical_url_html}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="PICEUS ThinkTank">
+  <meta property="og:title" content="{title_html}">
+  <meta property="og:description" content="{description_html}">
+  <meta property="og:url" content="{canonical_url_html}">
+  <meta property="og:image" content="{image_html}">
+  <meta property="og:image:alt" content="{title_html}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title_html}">
+  <meta name="twitter:description" content="{description_html}">
+  <meta name="twitter:image" content="{image_html}">
+  <script>window.location.replace({redirect_script});</script>
+</head>
+<body>
+  <main>
+    <img src="{image_html}" alt="">
+    <h1>{title_html}</h1>
+    <p>{description_html}</p>
+    <a href="{article_url_html}">Open article</a>
+  </main>
+</body>
+</html>'''
+        return HTMLResponse(
+            html,
+            headers={'Cache-Control': 'public, max-age=300, s-maxage=300'},
+        )
 
     @router.get('/posts/{post_id}/history')
     def get_blog_post_history(
