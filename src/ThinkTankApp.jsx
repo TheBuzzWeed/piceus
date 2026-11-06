@@ -803,6 +803,33 @@ const gatewayArticleImagesById = Object.entries(import.meta.glob(
 
 const gatewayArticleImagesByIdMap = Object.fromEntries(gatewayArticleImagesById);
 
+const gatewayArticleIntroBlocks = [
+  {
+    type: 'paragraph',
+    content: 'There will come a point when carrying a phone or opening a laptop feels as dated as dialing a rotary telephone. You will walk into a room and the room will know you are there.',
+  },
+  {
+    type: 'paragraph',
+    content: 'Your identity will authenticate before you touch anything. A gesture will open your workspace. Your voice will call someone. A movement of your hand will position information in physical space. A private display may exist only inside your field of view. A person thousands of miles away will no longer appear as a flat rectangle on a screen, but as a spatial presence standing in the room with you.',
+  },
+  {
+    type: 'paragraph',
+    content: 'The keyboard and monitor disappears. Eventually, much of the device disappears. What replaces it is an intelligent environment built from projection, spatial computing, gesture, voice, facial and voice recognition, wearables, sensors, AI, communications, and persistent digital presence. The smartphone was never the destination. It was another transition.',
+  },
+  {
+    type: 'paragraph',
+    content: 'The rotary telephone connected voices. The mobile phone disconnected communication from the wall. The smartphone turned communication into an operating system for everyday life. The next evolution removes the rectangle altogether. The interface becomes the environment. The environment becomes intelligence.',
+  },
+  {
+    type: 'quote',
+    content: 'Intelligence will follow us wherever we go.',
+  },
+  {
+    type: 'html',
+    content: '<hr />',
+  },
+];
+
 const gatewayArticleImageIdsInReadingOrder = [
   '1791108450017',
   '1791210753852',
@@ -985,9 +1012,19 @@ export default function ThinkTankApp({
     [posts, selectedId],
   );
   const articleBlocks = useMemo(
-    () => selectedPost?.slug === 'gateway-to-super-human-civilization'
-      ? replaceGatewayArticleImages(selectedPost.blocks || [])
-      : selectedPost?.blocks || [],
+    () => {
+      const blocks = selectedPost?.blocks || [];
+      if (selectedPost?.slug !== 'gateway-to-super-human-civilization') {
+        return blocks;
+      }
+
+      const resolvedBlocks = replaceGatewayArticleImages(blocks);
+      const hasArticleIntro = blocks.some((block) =>
+        String(block.content || '').includes('There will come a point when carrying a phone'),
+      );
+
+      return hasArticleIntro ? resolvedBlocks : [...gatewayArticleIntroBlocks, ...resolvedBlocks];
+    },
     [selectedPost],
   );
   const activePosts = useMemo(
